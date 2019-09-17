@@ -3,9 +3,6 @@
 # Date:     November 16, 2018
 # Version:  1.0
 
-# Reviewd by : Lisa Lindeman, Director of Research
-# Date : January 19, 2019
-
 # ---- Preliminaries ----
 # Loading the packages that we might need :
 
