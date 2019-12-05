@@ -3,9 +3,6 @@
 # Date:     November 26, 2018
 # Version:  1.0
 
-# Reviewd by :
-# Date :
-
 # ---- Preliminaries ----
 # Loading the packages that we might need :
  
