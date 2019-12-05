@@ -1,1 +1,190 @@
 
+# Title:    SRYB - Short Form Measurement - Fall 2019
+# Author:   Annick Eudes JB Research Manager
+# Date:     December 4, 2019
+
+# ---- Preliminaries ----
+# If you don't have these packages installed, use :
+#install.packages("tidyverse") # Data cleaning and alot more
+#install.packages("ggplot2")   # Graphs
+#install.packages("plyr")
+
+# Loading the packages that we might need :
+library(tidyverse)
+library(ggplot2)
+#library(plyr)
+library(readxl)
+
+
+df <- read_excel("social_and_emotional_skills_assessment_-_fall_2019_2.xlsx",
+col_types = c("text", "text", "date",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text"))
+
+View(df)
+
+df <- rename(df, ChildID = Q1, Your_ID = Q2,
+             Question1 = Q3a, Question2 = Q3b, Question3 = Q3c, Question4 = Q4a, Question5 = Q4b,
+             Question6 = Q4c, Question7 = Q5a, Question8 = Q5b, Question9 = Q5c,
+             Question10 = Q5d, Question11 = Q6b, # Note Question Q6a is Null because it's not in the new version of the SRYB
+             Question12 = Q6c, Question13 = Q6d, Question14 = Q6e)
+
+# names(df)[9] <- "ChildID"
+# names(df)[10] <- "Your_ID"
+# names(df)[]
+
+
+# Removing the naratives .... the 1rst row of the dataset :
+# Remember [rows, col]
+df <- df[-1, ]
+
+table(df$Question1, useNA = "always")
+
+# ---- 1. Recoding the variables ----
+"Expresses Emotion Knowledge"
+
+df$Question1[df$Question1 == "Not at all like this youth"] <- 1
+df$Question1[df$Question1 == "A little like this youth"] <- 2
+df$Question1[df$Question1 == "Somewhat like this youth"] <- 3
+df$Question1[df$Question1 == "A lot like this youth"] <- 4
+df$Question1[df$Question1 == "Exactly like this youth"] <- 5
+df$Question1[df$Question1 == "N/A"] <- NA
+
+
+df$Question2[df$Question2 == "Not at all like this youth"] <- 1
+df$Question2[df$Question2 == "A little like this youth"] <- 2
+df$Question2[df$Question2 == "Somewhat like this youth"] <- 3
+df$Question2[df$Question2 == "A lot like this youth"] <- 4
+df$Question2[df$Question2 == "Exactly like this youth"] <- 5
+df$Question2[df$Question2 == "N/A"] <- NA
+
+
+df$Question3[df$Question3 == "Not at all like this youth"] <- 1
+df$Question3[df$Question3 == "A little like this youth"] <- 2
+df$Question3[df$Question3 == "Somewhat like this youth"] <- 3
+df$Question3[df$Question3 == "A lot like this youth"] <- 4
+df$Question3[df$Question3 == "Exactly like this youth"] <- 5
+df$Question3[df$Question3 == "N/A"] <- NA
+
+
+"Behaviorally Manages Emotions"
+
+df$Question4[df$Question4 == "Not at all like this youth"] <- 1
+df$Question4[df$Question4 == "A little like this youth"] <- 2
+df$Question4[df$Question4 == "Somewhat like this youth"] <- 3
+df$Question4[df$Question4 == "A lot like this youth"] <- 4
+df$Question4[df$Question4 == "Exactly like this youth"] <- 5
+df$Question4[df$Question4 == "N/A"] <- NA
+
+
+df$Question5[df$Question5 == "Not at all like this youth"] <- 1
+df$Question5[df$Question5 == "A little like this youth"] <- 2
+df$Question5[df$Question5 == "Somewhat like this youth"] <- 3
+df$Question5[df$Question5 == "A lot like this youth"] <- 4
+df$Question5[df$Question5 == "Exactly like this youth"] <- 5
+df$Question5[df$Question5 == "N/A"] <- NA
+
+
+
+df$Question6[df$Question6 == "Not at all like this youth"] <- 1
+df$Question6[df$Question6 == "A little like this youth"] <- 2
+df$Question6[df$Question6 == "Somewhat like this youth"] <- 3
+df$Question6[df$Question6 == "A lot like this youth"] <- 4
+df$Question6[df$Question6 == "Exactly like this youth"] <- 5
+df$Question6[df$Question6 == "N/A"] <- NA
+
+"Displays Social-Role Mastery"
+
+df$Question7[df$Question7 == "None of the time"] <- 1
+df$Question7[df$Question7 == "A little of the time"] <- 2
+df$Question7[df$Question7 == "Some of the time"] <- 3
+df$Question7[df$Question7 == "Most of the time"] <- 4
+df$Question7[df$Question7 == "All of the time"] <- 5
+df$Question7[df$Question7 == "N/A"] <- NA
+
+
+df$Question8[df$Question8 == "None of the time"] <- 1
+df$Question8[df$Question8 == "A little of the time"] <- 2
+df$Question8[df$Question8 == "Some of the time"] <- 3
+df$Question8[df$Question8 == "Most of the time"] <- 4
+df$Question8[df$Question8 == "All of the time"] <- 5
+df$Question8[df$Question8 == "N/A"] <- NA
+
+df$Question9[df$Question9 == "None of the time"] <- 1
+df$Question9[df$Question9 == "A little of the time"] <- 2
+df$Question9[df$Question9 == "Some of the time"] <- 3
+df$Question9[df$Question9 == "Most of the time"] <- 4
+df$Question9[df$Question9 == "All of the time"] <- 5
+df$Question9[df$Question9 == "N/A"] <- NA
+
+df$Question10[df$Question10 == "None of the time"] <- 1
+df$Question10[df$Question10 == "A little of the time"] <- 2
+df$Question10[df$Question10 == "Some of the time"] <- 3
+df$Question10[df$Question10 == "Most of the time"] <- 4
+df$Question10[df$Question10 == "All of the time"] <- 5
+df$Question10[df$Question10 == "N/A"] <- NA
+
+"Displays Social-Role Mastery"
+
+df$Question11[df$Question11 == "None of the time"] <- 1
+df$Question11[df$Question11 == "A little of the time"] <- 2
+df$Question11[df$Question11 == "Some of the time"] <- 3
+df$Question11[df$Question11 == "Most of the time"] <- 4
+df$Question11[df$Question11 == "All of the time"] <- 5
+df$Question11[df$Question11 == "N/A"] <- NA
+
+df$Question12[df$Question12 == "None of the time"] <- 1
+df$Question12[df$Question12 == "A little of the time"] <- 2
+df$Question12[df$Question12 == "Some of the time"] <- 3
+df$Question12[df$Question12 == "Most of the time"] <- 4
+df$Question12[df$Question12 == "All of the time"] <- 5
+df$Question12[df$Question12 == "N/A"] <- NA
+
+df$Question13[df$Question13 == "None of the time"] <- 1
+df$Question13[df$Question13 == "A little of the time"] <- 2
+df$Question13[df$Question13 == "Some of the time"] <- 3
+df$Question13[df$Question13 == "Most of the time"] <- 4
+df$Question13[df$Question13 == "All of the time"] <- 5
+df$Question13[df$Question13 == "N/A"] <- NA
+
+df$Question14[df$Question14 == "None of the time"] <- 1
+df$Question14[df$Question14 == "A little of the time"] <- 2
+df$Question14[df$Question14 == "Some of the time"] <- 3
+df$Question14[df$Question14 == "Most of the time"] <- 4
+df$Question14[df$Question14 == "All of the time"] <- 5
+df$Question14[df$Question14 == "N/A"] <- NA
+
+# ---- 2 Transforming the variables ----
+str(df)
+
+# All the variables are in "chr", we need to transforme them into "numeric".
+
+# We start by defining the columns we whant to tranform to numeric :
+numerizing_columns <- c("Question1", "Question2", "Question3",
+                      "Question4", "Question5", "Question6",
+                      "Question7", "Question8", "Question9",
+                      "Question10", "Question11", "Question12",
+                      "Question13", "Question14")
+
+df[numerizing_columns] <- sapply(df[numerizing_columns], as.numeric)
+
+# Verification:
+str(df[numerizing_columns])
+
+str(df)
