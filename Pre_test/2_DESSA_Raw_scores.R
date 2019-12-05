@@ -3,8 +3,6 @@
 # Date:     November 09, 2018
 # Version:  2.0
 
-# Reviewd by : Annick Eudes 
-
 # This revision of the stript replaces the original cleaned dataset with the 
 # sel_data_imputed data that incoporates the missing values.
 
