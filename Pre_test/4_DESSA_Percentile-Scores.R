@@ -3,9 +3,6 @@
 # Date:     November 16, 2018
 # Version:  1.0
 
-# Reviewd by :
-# Date :
-
 # ---- Preliminaries ----
 # Loading the packages that we might need :
 # Don't forget to load these at each session....
