@@ -3,10 +3,6 @@
 # Date:     November 09, 2018
 # Version:  1.0
 
-# Reviewd by : Lisa Lindeman, Director of Research
-# Date : January 19, 2019
-
-
 # ---- Preliminaries ----
 # If you don't have these packages installed, use :
 #install.packages("tidyverse") # Data cleaning and alot more
