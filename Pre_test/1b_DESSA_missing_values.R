@@ -1,6 +1,3 @@
-# Title:    Devereux Student Strengths Assessment (DESSA) - Fall 2018
-# Author:   Lisa Lindeman, Director of Research
-# Date:     December 4, 2018
 # Version:  1.0
 
 # Note : Do not run this script twice, you might get an error on section 1B.3.
